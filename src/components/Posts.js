@@ -19,13 +19,13 @@ class Posts extends React.Component {
     render() {
       const postItems = this.props.posts.map(post => (
         <div key={post.id}>
-        <h3>{post.title}</h3>
+        <h3 className="title">{post.title}</h3>
         <p>{post.body}</p>
         </div>
       ));
       return (
         <div>
-        <h1>Posts</h1>
+        <h1 className="title">Posts</h1>
        {postItems}
         </div>
       );

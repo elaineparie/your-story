@@ -12,6 +12,16 @@
   font-family: fantasy;
   font-size: 65px;
   text-align: center;
+  font: Times
+}
+
+.title {
+  font: Times;
+  font-style: oblique;
+}
+
+.label {
+  font-weight: bold;
 }
 
 .App-header {

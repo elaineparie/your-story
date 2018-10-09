@@ -35,16 +35,16 @@ class PostForm extends React.Component {
   render() {
     return (
       <div>
-      <h1><Jumbotron>Add Post</Jumbotron></h1>
+      <h1><Jumbotron>Write your next chapter</Jumbotron></h1>
       <form onSubmit={this.onSubmit}>
         <div>
 
-          <Label bsStyle="danger">Title:</Label><br />
+          <Label className="label">Title:</Label><br />
           <input type="text" name="title" value={this.state.title} onChange={this.onChange}/>
         </div><br />
         <div>
          <FormGroup>
-          <label>Body:</label><br />
+          <label className="label">Body:</label><br />
           <textarea name="body" value={this.state.body} onChange={this.onChange}/>
           </FormGroup>
         </div>
