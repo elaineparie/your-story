@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createPost } from '../actions/postActions'
+import { FormGroup, Button, Label, Jumbotron} from 'react-bootstrap';
 
 
 class PostForm extends React.Component {
@@ -34,18 +35,21 @@ class PostForm extends React.Component {
   render() {
     return (
       <div>
-      <h1>Add Post</h1>
+      <h1><Jumbotron>Add Post</Jumbotron></h1>
       <form onSubmit={this.onSubmit}>
         <div>
-          <label>Title:</label><br />
+
+          <Label bsStyle="danger">Title:</Label><br />
           <input type="text" name="title" value={this.state.title} onChange={this.onChange}/>
         </div><br />
         <div>
+         <FormGroup>
           <label>Body:</label><br />
           <textarea name="body" value={this.state.body} onChange={this.onChange}/>
+          </FormGroup>
         </div>
         <br />
-        <button type="submit">Submit</button>
+        <Button bsStyle='info' type="submit">Submit</Button>
       </form>
       </div>
     );
