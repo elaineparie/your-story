@@ -24,5 +24,5 @@ export const createPost = (postData) => dispatch => {
 .then(post => dispatch({
   type: NEW_POST,
   payload: post
-}))
-}
+}));
+};
