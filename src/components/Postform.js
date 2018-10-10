@@ -7,6 +7,12 @@ import { FormGroup, Button, Label, Jumbotron} from 'react-bootstrap';
 
 class PostForm extends React.Component {
   constructor(props) {
+debugger
+    fetch('http://localhost:3001/api/v1/posts')
+    .then(response => response.json())
+    .then(json => {debugger})
+
+
     super(props);
     this.state = {
       title: '',
@@ -35,7 +41,7 @@ class PostForm extends React.Component {
   render() {
     return (
       <div>
-      <h1><Jumbotron>Write your next chapter</Jumbotron></h1>
+      <h1><Jumbotron>Write your next chapter...</Jumbotron></h1>
       <form onSubmit={this.onSubmit}>
         <div>
 
