@@ -2,8 +2,10 @@ module Api
   module V1
     class PostsController < ApplicationController
       def index
-        p = Post.create(title: "hello")
-        render json: p
+        array = []
+        array << p = Post.create(title: "hello", body: "first post")
+        array << x = Post.create(title: "wassup", body: "second post")
+        render json: array
         # binding.pry
       end
 
