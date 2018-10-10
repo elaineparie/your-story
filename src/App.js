@@ -5,6 +5,8 @@ import Posts from './components/Posts'
 import PostForm from './components/Postform'
 import { Provider } from 'react-redux'
 import store from './store'
+import Home from './components/presentational/Home'
+
 
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
           <PostForm />
           <hr />
           <Posts />
+          <Home />
         </div>
       </Provider>
     );

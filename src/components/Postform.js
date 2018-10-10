@@ -7,10 +7,10 @@ import { FormGroup, Button, Label, Jumbotron} from 'react-bootstrap';
 
 class PostForm extends React.Component {
   constructor(props) {
-debugger
-    fetch('http://localhost:3001/api/v1/posts')
-    .then(response => response.json())
-    .then(json => {debugger})
+// debugger
+//     fetch('http://localhost:3001/api/v1/posts')
+//     .then(response => response.json())
+//     .then(json => {debugger})
 
 
     super(props);
