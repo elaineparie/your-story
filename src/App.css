@@ -32,6 +32,15 @@
 }
 
 .signupform {
+  margin-top: 60px;
+  margin-left: 60px
+}
+
+.header {
+  margin-top: 60px;
+}
+
+#root {
   margin-left: 60px
 }
 

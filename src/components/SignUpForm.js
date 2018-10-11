@@ -19,7 +19,14 @@ class SignUpForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault()
-    console.log(this.state);
+    // console.log(this.state);
+
+    fetch('http://localhost:3001/api/v1/users', {
+    method: 'post',
+    body: JSON.stringify({user: this.state})
+  }).then(response => response.json())
+  .then(data => console.log(data));
+    // make fetch request here
   }
 
   render() {

@@ -21,7 +21,6 @@ export const createPost = (postData) => dispatch => {
   })
 
 .then(function(response) {
-  debugger
   // return response.json();
 }).then(function(data) {
   console.log(data)
