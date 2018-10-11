@@ -12,7 +12,7 @@ export const fetchPosts = () => dispatch => {
 
 
 export const createPost = (postData) => dispatch => {
-  fetch('https://jsonplaceholder.typicode.com/posts', {
+  fetch('http://localhost:3001/api/v1/posts', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -20,9 +20,10 @@ export const createPost = (postData) => dispatch => {
     body: JSON.stringify(postData)
   })
 
-.then(res => res.json())
-.then(post => dispatch({
-  type: NEW_POST,
-  payload: post
-}));
+.then(function(response) {
+  debugger
+  // return response.json();
+}).then(function(data) {
+  console.log(data)
+})
 };
