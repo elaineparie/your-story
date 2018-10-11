@@ -7,6 +7,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import routes from './routes'
 import PostPage from './components/presentational/PostPage'
 import Home from './components/presentational/Home'
+import UserPosts from './components/presentational/UserPosts'
 import About from './components/presentational/About'
 import SignUp from './components/SignUp'
 import { Provider } from 'react-redux'
@@ -40,7 +41,7 @@ const Navbar = () =>
       activeStyle={{
         background: 'darkblue'
       }}
-    >Posts</NavLink>
+    >Post Feed</NavLink>
     <NavLink
       to="/about"
       exact
@@ -49,6 +50,14 @@ const Navbar = () =>
         background: 'darkblue'
       }}
     >About</NavLink>
+    <NavLink
+      to="/userposts"
+      exact
+      style={link}
+      activeStyle={{
+        background: 'darkblue'
+      }}
+    >Your Chapters</NavLink>
   </div>;
 
 
@@ -62,6 +71,7 @@ ReactDOM.render((
     <Route path="/posts" component={PostPage} />
     <Route exact path="/about" render={About} />
     <Route exact path="/signup" component={SignUp} />
+    <Route exact path="/userposts" component={UserPosts} />
 
     </React.Fragment>
   </Router>
