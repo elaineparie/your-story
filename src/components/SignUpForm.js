@@ -20,14 +20,20 @@ class SignUpForm extends React.Component {
   onSubmit(e) {
     e.preventDefault()
     // console.log(this.state);
-
+    debugger
     fetch('http://localhost:3001/api/v1/users', {
     method: 'post',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({user: this.state})
   }).then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => console.log(data))
+  .catch(error => console.log("my error ", error));
     // make fetch request here
   }
+
 
   render() {
     return (
