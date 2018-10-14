@@ -25,7 +25,7 @@ class SignUpForm extends React.Component {
     method: 'post',
     body: JSON.stringify({user: this.state})
   }).then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => console.log(data)).catch(error => console.log("my error ", error));
     // make fetch request here
   }
 

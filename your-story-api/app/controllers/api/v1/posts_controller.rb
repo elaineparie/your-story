@@ -4,7 +4,6 @@ module Api
       def index
         @posts = Post.all
         render json: @posts
-        # binding.pry
       end
 
       def show
@@ -14,10 +13,15 @@ module Api
       end
 
       def create
-      end 
+        @post = Post.create(title: params[:title], body: params[:body])
+        render json: @post 
+      end
 
       private
       def set_article
+      end
+
+      def post_params
       end
 
     end

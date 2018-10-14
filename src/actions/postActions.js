@@ -7,22 +7,23 @@ export const fetchPosts = () => dispatch => {
     .then(posts => dispatch({
       type: FETCH_POSTS,
       payload: posts
-    }))
+    })).catch(error => console.log("my error ", error));
 }
 
 
 export const createPost = (postData) => dispatch => {
   fetch('http://localhost:3001/api/v1/posts', {
     method: 'POST',
+    // mode: 'no-cors',
     headers: {
       'content-type': 'application/json'
     },
     body: JSON.stringify(postData)
   })
 
-.then(function(response) {
-  // return response.json();
-}).then(function(data) {
-  console.log(data)
-})
+.then(function(response){
+  return response.json()})
+.then(function(data) {
+  dispatch({type: NEW_POST, payload: data})
+}).catch(error => console.log("my error ", error));
 };
