@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
+import Post from './Post.js'
+import { bindActionCreators } from 'redux'
 
 
 class Posts extends React.Component {
 
   componentWillMount() {
-    this.props.fetchPosts();
+     this.props.fetchPosts();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -16,18 +18,13 @@ class Posts extends React.Component {
     }
   }
 
+renderPosts = () => this.props.posts.map((post, id) => <Post delete={this.props.delete} key={id} title={post.title} body={post.body} />)
+
     render() {
-      const postItems = this.props.posts.map(post => (
-        <div key={post.id}>
-        <h3 className="title">{post.title}</h3>
-        <p>{post.body}</p>
-        </div>
-      ));
       return (
         <div>
-        <h1 className="title">Posts</h1>
-       {postItems}
-        </div>
+      {this.renderPosts()}
+      </div>
       );
     }
   }
@@ -43,4 +40,11 @@ class Posts extends React.Component {
       newPost: state.posts.item
     })
 
-export default connect(mapStateToProps, { fetchPosts })(Posts);
+    const mapDispatchToProps = dispatch => {
+  return {
+    delete: post => dispatch({type: 'DELETE_POST', payload: post }),
+    fetchPosts: () => dispatch(fetchPosts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
