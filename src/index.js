@@ -11,8 +11,11 @@ import UserPosts from './components/presentational/UserPosts'
 import About from './components/presentational/About'
 import SignUp from './components/SignUp'
 import { Provider } from 'react-redux'
-import store from './store';
+// import store from './store';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index'
 
 
 const link = {
@@ -61,7 +64,7 @@ const Navbar = () =>
   </div>;
 
 
-
+const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render((
   <Provider store={store}>
   <Router>

@@ -1,4 +1,7 @@
 import React, {PropTypes} from 'react';
+import { createUser } from '../actions/userActions'
+import { connect } from 'react-redux';
+
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -21,13 +24,21 @@ class SignUpForm extends React.Component {
     e.preventDefault()
     // console.log(this.state);
 
-    fetch('http://localhost:3001/api/v1/users', {
-    method: 'post',
-    body: JSON.stringify({user: this.state})
-  }).then(response => response.json())
-  .then(data => console.log(data)).catch(error => console.log("my error ", error));
+    const user = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.createUser(user)
+
+  //   fetch('http://localhost:3001/api/v1/users', {
+  //   method: 'post',
+  //   body: JSON.stringify({user: this.state})
+  // }).then(response => response.json())
+  // .then(data => console.log(data)).catch(error => console.log("my error ", error));
     // make fetch request here
   }
+
 
   render() {
     return (
@@ -77,4 +88,9 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default SignUpForm
+// SignUpForm.propTypes = {
+//   createUser: PropTypes.func.isRequired
+// }
+
+
+export default connect(null, { createUser })(SignUpForm)

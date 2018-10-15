@@ -7,6 +7,9 @@ module Api
       end
 
       def create
+        @user = User.create(name: params[:name], email: params[:email], password: params[:password])
+        binding.pry
+        render json: @user
       end
 
       def show
