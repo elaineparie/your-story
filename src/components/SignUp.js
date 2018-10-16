@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUpForm from './SignUpForm.js'
+import LoginForm from './LoginForm'
 
 class SignUp extends React.Component {
   render() {
@@ -8,6 +9,10 @@ class SignUp extends React.Component {
       <div className="signupform">
 
         <SignUpForm />
+
+        <hr />
+
+        <LoginForm />
 
         </div>
       </div>);

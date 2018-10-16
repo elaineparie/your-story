@@ -27,3 +27,21 @@ export const createPost = (postData) => dispatch => {
   dispatch({type: NEW_POST, payload: data})
 }).catch(error => console.log("my error ", error));
 };
+
+
+// export const deletePost = postId => {
+//   return dispatch => {
+//     return fetch(`http://localhost:3001/api/v1/posts/${postId}`, {
+//       method: "DELETE",
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({post: postId})
+//     })
+//       .then(response => response.json())
+//       .then(post => {
+//         dispatch(destroyPost(post))
+//       })
+//       .catch(error => console.log(error))
+//   };
+// }

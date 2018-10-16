@@ -6,6 +6,7 @@ import Post from './Post.js'
 import { bindActionCreators } from 'redux'
 
 
+
 class Posts extends React.Component {
 
   componentWillMount() {
@@ -18,7 +19,9 @@ class Posts extends React.Component {
     }
   }
 
-renderPosts = () => this.props.posts.map((post, id) => <Post delete={this.props.delete} key={id} title={post.title} body={post.body} />)
+  renderPosts(){
+    return this.props.posts.map((post, id) => <Post delete={this.props.delete} key={id} title={post.title} text={post} body={post.body} />)
+  }
 
     render() {
       return (
