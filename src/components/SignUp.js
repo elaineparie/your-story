@@ -1,6 +1,7 @@
 import React from 'react';
 import SignUpForm from './SignUpForm.js'
-import LoginForm from './LoginForm'
+import SignInForm from './SignInForm.js'
+
 
 class SignUp extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class SignUp extends React.Component {
 
         <hr />
 
-        <LoginForm />
+        <SignInForm />
 
         </div>
       </div>);

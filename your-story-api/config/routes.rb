@@ -6,4 +6,5 @@ namespace :api do
   resources :users
     end
   end
+  get '/signin', to: 'sessions#create'
 end
