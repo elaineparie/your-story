@@ -1,7 +1,8 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :current_user, only: [:me]
+      skip_before_action :authorized, only: [:create]
+
       def index
         @users = User.all
         render json: @users
