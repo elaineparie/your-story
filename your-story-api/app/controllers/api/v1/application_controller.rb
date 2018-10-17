@@ -3,22 +3,30 @@ module Api
     class ApplicationController < ActionController::API
       include ActionController::MimeResponds
 
-        # before_action :current_member
-        # before_action :require_logged_in, except: [:new, :create, :home]
-        #
-        # def logged_in?
-        #   !!current_user
-        # end
-        #
-        # private
-        # def require_logged_in
-        #   redirect_to new_member_path unless logged_in?
-        # end
-        #
-        # def current_member
-        #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-        # end
-        # helper_method :current_user
+      def encode_token(payload)
+        token = JWT.encode(payload, "flobble")
+      end
+
+      def auth_header
+        header = request.headers["Authorization"]
+      end
+
+      def decoded_token
+        if auth_header
+        token = auth_header.split(" ")[1]
+        begin
+        JWT.decode(token, "flobble", true, {algorithm: 'HS256'})
+      else
+        end
+      end
+
+      def current_user
+        if decoded_token
+        user_id = decoded_token[0]["user_id"]
+        @user = User.find(user_id)
+        else
+        end
+      end
 
     end
   end

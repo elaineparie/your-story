@@ -16,7 +16,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index'
-import Signin from './components/SignInForm';
+import SignInForm from './components/SignInForm';
 
 
 const link = {
@@ -76,7 +76,7 @@ ReactDOM.render((
     <Route exact path="/about" render={About} />
     <Route exact path="/signup" component={SignUp} />
     <Route exact path="/userposts" component={UserPosts} />
-    <Route path="/signin" component={Signin} />
+    <Route path="/signin" component={SignInForm} />
 
 
     </React.Fragment>

@@ -11,9 +11,11 @@ class SignInForm extends React.Component {
       e.preventDefault()
       // console.log(this.state);
 
+      const signInParams = { email: this.state.email, password: this.state.password }
+      const body = JSON.stringify(signInParams)
     fetch('http://localhost:3001/signin', {
       method: 'post',
-      body: ''
+      body: body
     })
       .then(response => response.json())
       .then((data) => {
@@ -69,7 +71,7 @@ class SignInForm extends React.Component {
 
       <div className="form-group">
       <button className="btn btn-primary btn-lg">
-      Sign Up
+      Sign In
       </button>
       </div>
       </form>
