@@ -10,6 +10,7 @@ import Home from './components/presentational/Home'
 import UserPosts from './components/presentational/UserPosts'
 import About from './components/presentational/About'
 import SignUp from './components/SignUp'
+import SignInForm from './components/SignInForm'
 import { Provider } from 'react-redux'
 // import store from './store';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
@@ -75,6 +76,7 @@ ReactDOM.render((
     <Route exact path="/about" render={About} />
     <Route exact path="/signup" component={SignUp} />
     <Route exact path="/userposts" component={UserPosts} />
+    <Route path="/signin" component={SignInForm} />
 
     </React.Fragment>
   </Router>

@@ -1,7 +1,11 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
+import { bindActionCreators } from 'redux';
+import { Redirect, BrowserRouter } from 'react-router-dom';
+
 
 
 class Posts extends React.Component {
@@ -17,6 +21,7 @@ class Posts extends React.Component {
   }
 
     render() {
+       // if (localStorage.getItem("jwtToken")){
       const postItems = this.props.posts.map(post => (
         <div key={post.id}>
         <h3 className="title">{post.title}</h3>
@@ -29,6 +34,10 @@ class Posts extends React.Component {
        {postItems}
         </div>
       );
+    // }
+    //   else{
+    //     return <BrowserRouter><Redirect to="/signin" /></BrowserRouter>
+    //   }
     }
   }
 
