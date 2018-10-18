@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import { signInUser } from '../services/user'
+import { Redirect } from 'react-router-dom'
 
 class SignInForm extends React.Component {
     state = {
@@ -16,16 +17,17 @@ class SignInForm extends React.Component {
       .then((user) => {
 
         localStorage.setItem("jwtToken", user.jwt)
-        console.log(user)
+
+        this.setState({
+          email: "",
+          password: ""
+        })
+        
       })
 
       const body = JSON.stringify(signInParams)
 
 
-      this.setState({
-        email: "",
-        password: ""
-      })
     }
 
     handleEmailChange = (event) =>{
@@ -41,8 +43,12 @@ class SignInForm extends React.Component {
     }
 
   render() {
-    console.log(this.state)
+    if (localStorage.getItem('jwtToken')) {
+      return <Redirect to="/posts"/>
+    } else {
+
     return (
+
       <form onSubmit={this.handleSubmit}>
       <h1>Login</h1>
 
@@ -76,7 +82,8 @@ class SignInForm extends React.Component {
       </button>
       </div>
       </form>
-    );
+      );
+    }
   }
 }
 
