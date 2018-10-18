@@ -4,7 +4,6 @@ module Api
       skip_before_action :authorized, only: [:create]
 
       def create
-        byebug
         user = User.find_by(:email => params[:email])
         if user && user.authenticate(params[:password])
         token = encode_token({ user_id: user.id })

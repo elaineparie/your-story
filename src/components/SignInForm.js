@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import { signInUser } from '../services/user'
 
 class SignInForm extends React.Component {
     state = {
@@ -11,16 +12,15 @@ class SignInForm extends React.Component {
       console.log(this);
 
       const signInParams = { email: this.state.email, password: this.state.password }
+      signInUser(signInParams)
+      .then((user) => {
+
+        localStorage.setItem("jwtToken", user.jwt)
+        console.log(user)
+      })
+
       const body = JSON.stringify(signInParams)
 
-    fetch('http://localhost:3001/signin', {
-      method: 'post',
-      body: body
-    })
-      .then(response => response.json())
-      .then((data) => {
-      console.log(data)
-    });
 
       this.setState({
         email: "",
