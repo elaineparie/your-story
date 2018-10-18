@@ -1,18 +1,18 @@
 import React, {PropTypes} from 'react';
 
 class SignInForm extends React.Component {
-
     state = {
       email: '',
       password: ''
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
       e.preventDefault()
-      // console.log(this.state);
+      console.log(this);
 
       const signInParams = { email: this.state.email, password: this.state.password }
       const body = JSON.stringify(signInParams)
+
     fetch('http://localhost:3001/signin', {
       method: 'post',
       body: body
@@ -41,6 +41,7 @@ class SignInForm extends React.Component {
     }
 
   render() {
+    console.log(this.state)
     return (
       <form onSubmit={this.handleSubmit}>
       <h1>Login</h1>

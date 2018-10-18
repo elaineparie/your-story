@@ -8,7 +8,6 @@ import store from './store'
 import Home from './components/presentational/Home'
 
 
-
 class App extends Component {
   render() {
     return (

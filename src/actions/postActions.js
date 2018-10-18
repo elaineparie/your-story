@@ -4,6 +4,7 @@ import { FETCH_POSTS, NEW_POST } from './types';
 export const fetchPosts = () => dispatch => {
     fetch('http://localhost:3001/api/v1/posts')
     .then(res => res.json())
+    .then(res => console.log(res))
     .then(posts => dispatch({
       type: FETCH_POSTS,
       payload: posts

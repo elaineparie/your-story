@@ -19,7 +19,11 @@ class Posts extends React.Component {
     }
   }
 
-  renderPosts(){
+  renderPosts() {
+    // const postsArray = (Array.from(this.props.posts))
+    
+    //use dot notation or for loop
+
     return this.props.posts.map((post, id) => <Post delete={this.props.delete} key={id} title={post.title} text={post} body={post.body} />)
   }
 
@@ -34,7 +38,7 @@ class Posts extends React.Component {
 
     Posts.propTypes = {
       fetchPosts: PropTypes.func.isRequired,
-      posts: PropTypes.array.isRequired,
+      posts: PropTypes.object,
       newPost: PropTypes.object
     }
 
