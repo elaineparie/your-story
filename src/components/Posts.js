@@ -22,6 +22,7 @@ class Posts extends React.Component {
 
     render() {
        // if (localStorage.getItem("jwtToken")){
+       console.log(this.props.posts)
       const postItems = this.props.posts.map(post => (
         <div key={post.id}>
         <h3 className="title">{post.title}</h3>
