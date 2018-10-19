@@ -17,7 +17,7 @@ export const createUser = (postData) => dispatch => {
     method: 'POST',
     // mode: 'no-cors',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
     },
     body: JSON.stringify(postData)
   })

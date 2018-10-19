@@ -16,11 +16,11 @@ export const createPost = (postData) => dispatch => {
     method: 'POST',
     // mode: 'no-cors',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
     },
     body: JSON.stringify(postData)
   })
-
 .then(function(response){
   return response.json()})
 .then(function(data) {

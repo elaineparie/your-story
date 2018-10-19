@@ -27,12 +27,13 @@ class PostForm extends React.Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const post = {
       title: this.state.title,
       body: this.state.body
+
     };
 
     this.props.createPost(post);

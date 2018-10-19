@@ -6,7 +6,7 @@ const Home = props =>
  <div><h1 className="header">Welcome to your story! Where your life writes the narrative. </h1>
 <button><Link to={`/posts`} >Write today's chapter...</Link></button>
 
-z
+
 </div>
 
 
