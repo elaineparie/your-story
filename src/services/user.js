@@ -1,3 +1,5 @@
+import { Redirect, BrowserRouter } from 'react-router-dom';
+import React from 'react';
 export function signInUser(signInParams) {
   const body = JSON.stringify(signInParams)
   return fetch('http://localhost:3001/signin', {
@@ -5,12 +7,21 @@ export function signInUser(signInParams) {
     body: body,
     headers: {
       "Accept":"application/json",
-      "Content-Type":"application/json",
-      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
+      "Content-Type":"application/json"
     }
   })
     .then(response => response.json())
+    // .then(response => {
+    //   const {user, jwt} = response
+    //   localStorage.setItem("jwtToken", jwt)
+    // })
+
   //   .then((data) => {
   //   // console.log(data)
   // });
+}
+
+
+export function logoutUser() {
+  localStorage.removeItem("jwtToken")
 }

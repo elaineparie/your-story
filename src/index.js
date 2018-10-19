@@ -7,7 +7,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import routes from './routes'
 import PostPage from './components/presentational/PostPage'
 import Home from './components/presentational/Home'
-import UserPosts from './components/presentational/UserPosts'
+import UserPosts from './components/UserPosts'
 import About from './components/presentational/About'
 import SignUp from './components/SignUp'
 import SignInForm from './components/SignInForm'

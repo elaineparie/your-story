@@ -5,7 +5,9 @@ import PostForm from '../Postform';
 
 
 
+
 class PostPage extends React.Component {
+
   render() {
     return (
       <div>

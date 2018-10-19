@@ -1,9 +1,7 @@
 
 import React from 'react'
 
-function handleOnClick() {
-  this.props.deletePost(this.props.post.id);
-}
+
 
 const Post = props => {
 
@@ -11,7 +9,7 @@ const Post = props => {
     <div>
     <h2>{props.title}</h2>
     <p>{props.body}</p>
-    <button onClick={() => this.handleOnClick()}> X </button>
+    <button onClick={() => props.delete(props.text.id)}> X </button>
     </div>
   )
 }

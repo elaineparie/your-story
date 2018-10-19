@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST } from './types';
+import { FETCH_POSTS, NEW_POST, USER_POSTS } from './types';
 
 
 export const fetchPosts = () => dispatch => {
@@ -27,3 +27,17 @@ export const createPost = (postData) => dispatch => {
   dispatch({type: NEW_POST, payload: data})
 }).catch(error => console.log("my error ", error));
 };
+
+
+export const userPosts = () => dispatch => {
+    fetch('http://localhost:3001/users/me', {
+      headers: {
+      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
+    }
+  })
+    .then(res => res.json())
+    .then(userposts => dispatch({
+      type: USER_POSTS,
+      payload: userposts
+    })).catch(error => console.log("my error ", error));
+}
