@@ -1,5 +1,7 @@
 
 import React from 'react'
+import { FormGroup, Button, Label, Jumbotron} from 'react-bootstrap';
+
 
 
 
@@ -9,7 +11,9 @@ const Post = props => {
     <div>
     <h2>{props.title}</h2>
     <p>{props.body}</p>
-    <button onClick={() => props.delete(props.text.id)}> X </button>
+    <div>
+    <Button className="btn btn-outline-secondary" onClick={() => props.deletePost(props.text.id)}>delete</Button>
+    </div>
     </div>
   )
 }

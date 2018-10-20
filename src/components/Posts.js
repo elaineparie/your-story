@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/postActions';
+import { fetchPosts, deletePostId } from '../actions/postActions';
 import Post from './Post.js'
 import { bindActionCreators } from 'redux';
 import { Redirect, BrowserRouter } from 'react-router-dom';
-import { logoutUser } from '../services/user'
 
 
 
@@ -14,6 +13,7 @@ class Posts extends React.Component {
 
   handleOnClick = (id) => {
     this.props.deletePost(id);
+    deletePostId(id);
   }
 
   componentWillMount = () => {
@@ -32,8 +32,9 @@ class Posts extends React.Component {
 
     //use dot notation or for loop
     console.log(this.props.posts)
+    const {deletePost} = this.props.posts
 
-    return this.props.posts.map((post, id) => <Post delete={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
+    return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
 
     render() {
@@ -41,7 +42,6 @@ class Posts extends React.Component {
       if (localStorage.getItem("jwtToken")){
         return (
           <div>
-              <button onClick={this.handleLogout}>Log out</button>
         {this.renderPosts()}
         </div>
         );
