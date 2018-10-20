@@ -10,7 +10,6 @@ class SignInForm extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault()
-      console.log(this);
 
       const signInParams = { email: this.state.email, password: this.state.password }
       signInUser(signInParams)

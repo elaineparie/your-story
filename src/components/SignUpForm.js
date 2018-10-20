@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import { createUser } from '../actions/userActions'
 import { connect } from 'react-redux';
+import { signInUser } from '../services/user'
 
 
 class SignUpForm extends React.Component {
@@ -30,13 +31,17 @@ class SignUpForm extends React.Component {
       password: this.state.password
     }
     this.props.createUser(user)
+    const signInParams = { email: this.state.email, password: this.state.password }
+    signInUser(signInParams)
+    .then(user)
 
-  //   fetch('http://localhost:3001/api/v1/users', {
-  //   method: 'post',
-  //   body: JSON.stringify({user: this.state})
-  // }).then(response => response.json())
-  // .then(data => console.log(data)).catch(error => console.log("my error ", error));
-    // make fetch request here
+      localStorage.setItem("jwtToken", user.jwt)
+
+    this.setState({
+      name: "",
+      email: "",
+      password: ""
+    })
   }
 
 
@@ -71,7 +76,7 @@ class SignUpForm extends React.Component {
       <label className="control-label">Password</label>
       <input
       value={this.state.password}
-      type="text"
+      type="password"
       onChange={this.onChange}
       name="password"
       className="form-control"

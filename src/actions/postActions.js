@@ -2,10 +2,11 @@ import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST } from './types';
 
 
 export const fetchPosts = () => dispatch => {
+  const token = localStorage.getItem("jwtToken")
     fetch('http://localhost:3001/api/v1/posts', {
       headers: {
         'content-type': 'application/json',
-        "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
+        "Authorization":"Bearer " + token
       }
     })
     .then(res => res.json())
@@ -17,12 +18,13 @@ export const fetchPosts = () => dispatch => {
 
 
 export const createPost = (postData) => dispatch => {
+  const token = localStorage.getItem("jwtToken")
   fetch('http://localhost:3001/api/v1/posts', {
     method: 'POST',
     // mode: 'no-cors',
     headers: {
       'content-type': 'application/json',
-      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
+      "Authorization":"Bearer " + token
     },
     body: JSON.stringify(postData)
   })

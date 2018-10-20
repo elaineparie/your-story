@@ -11,14 +11,6 @@ export function signInUser(signInParams) {
     }
   })
     .then(response => response.json())
-    // .then(response => {
-    //   const {user, jwt} = response
-    //   localStorage.setItem("jwtToken", jwt)
-    // })
-
-  //   .then((data) => {
-  //   // console.log(data)
-  // });
 }
 
 
