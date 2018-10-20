@@ -34,19 +34,6 @@ export const createPost = (postData) => dispatch => {
 };
 
 
-export const userPosts = () => dispatch => {
-    fetch('http://localhost:3001/posts/user', {
-      headers: {
-      "Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOH0.sdz2a2JQ0JV2rMKiXbRJAH-pu4bYKPesMg-4wQ2AbH0"
-    }
-  })
-    .then(res => res.json())
-    .then(userposts => dispatch({
-      type: USER_POSTS,
-      payload: userposts
-    })).catch(error => console.log("my error ", error));
-}
-
 export const deletePostId = (id) => dispatch => {
     fetch('http://localhost:3001/posts/' + id, {
       method: 'delete'

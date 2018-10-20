@@ -9,6 +9,7 @@ import { Redirect, BrowserRouter } from 'react-router-dom';
 
 
 
+
 class Posts extends React.Component {
 
   handleOnClick = (id) => {
@@ -46,7 +47,7 @@ class Posts extends React.Component {
         </div>
         );
       }else{
-        return <BrowserRouter><Redirect to="/signin" /></BrowserRouter>
+        return <BrowserRouter><Redirect to="/" /></BrowserRouter>
       }
     }
   }

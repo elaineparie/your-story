@@ -23,6 +23,5 @@ export function signInUser(signInParams) {
 
 
 export function logoutUser() {
-debugger
   localStorage.removeItem("jwtToken")
 }
