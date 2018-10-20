@@ -62,13 +62,17 @@ const Navbar = () =>
 
 
 class App extends Component {
+
+  state = {
+    isLoggedIn: false
+  }
   render() {
     return (
       <Provider store={store}>
         <Router>
          <React.Fragment>
           <Navbar />
-          <Route exact path="/home" render={Home} />
+          <Route exact path="/home" component={Home} />
           <Route path="/posts" component={PostPage} />
          <Route exact path="/about" render={About} />
          <Route exact path="/signin" component={SignInForm} />

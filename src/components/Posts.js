@@ -5,6 +5,7 @@ import { fetchPosts, deletePostId } from '../actions/postActions';
 import Post from './Post.js'
 import { bindActionCreators } from 'redux';
 import { Redirect, BrowserRouter } from 'react-router-dom';
+import { logoutUser } from '../services/user'
 
 
 
@@ -27,6 +28,13 @@ class Posts extends React.Component {
     }
   }
 
+ handleLogout = () => {
+    logoutUser()
+    this.setState({
+      isLoggedIn: false
+    })
+  }
+
 
   renderPosts() {
     // const postsArray = (Array.from(this.props.posts))
@@ -44,10 +52,14 @@ class Posts extends React.Component {
         return (
           <div>
         {this.renderPosts()}
+
+        <hr />
+        <button onClick={this.handleLogout}>Log out</button>
+        <br />
         </div>
         );
       }else{
-        return <BrowserRouter><Redirect to="/" /></BrowserRouter>
+        return <Redirect to="/" />
       }
     }
   }
