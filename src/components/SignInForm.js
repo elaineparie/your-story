@@ -22,7 +22,7 @@ class SignInForm extends React.Component {
           password: ""
         })
 
-      
+
 
       })
 
@@ -70,7 +70,7 @@ class SignInForm extends React.Component {
       <input
       placeholder="password"
       value={this.state.password}
-      type="text"
+      type="password"
       onChange={this.handlePasswordChange}
       name="password"
       className="form-control"

@@ -36,13 +36,17 @@ export const createPost = (postData) => dispatch => {
 };
 
 
-export const deletePostId = (id) => dispatch => {
-    fetch('http://localhost:3001/posts/' + id, {
-      method: 'delete'
+export const deletePost = (id) => dispatch => {
+  const token = localStorage.getItem("jwtToken")
+    fetch('http://localhost:3001/api/v1/posts/' + id, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        "Authorization":"Bearer " + token
+      }
   })
-  .then(response =>
-  response.json().then(json => {
-    return json;
-  })
-)
-}
+  .then(response => response.json())
+    .then(function(data) {
+      dispatch({type: DELETE_POST, payload: data})
+    }).catch(error => console.log("my error ", error))
+  }
