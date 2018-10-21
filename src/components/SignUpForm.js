@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import { createUser } from '../actions/userActions'
 import { connect } from 'react-redux';
 import { signInUser } from '../services/user'
+import { Redirect } from 'react-router-dom'
 
 
 class SignUpForm extends React.Component {
@@ -21,7 +22,7 @@ class SignUpForm extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault()
     // console.log(this.state);
 
@@ -32,20 +33,32 @@ class SignUpForm extends React.Component {
     }
     this.props.createUser(user)
     const signInParams = { email: this.state.email, password: this.state.password }
+    debugger
     signInUser(signInParams)
-    .then(user)
+    .then((user) => {
 
       localStorage.setItem("jwtToken", user.jwt)
 
-    this.setState({
-      name: "",
-      email: "",
-      password: ""
+      this.setState({
+        name: "",
+        email: "",
+        password: ""
+      })
+
     })
+
+
+          this.setState({
+            isLoggedIn: true
+          })
+          const body = JSON.stringify(signInParams)
   }
 
 
   render() {
+    if (localStorage.getItem('jwtToken')) {
+      return <Redirect to="/posts"/>
+    } else {
     return (
       <form onSubmit={this.onSubmit}>
       <h1>Join our community</h1>
@@ -90,6 +103,7 @@ class SignUpForm extends React.Component {
       </div>
       </form>
     );
+  }
   }
 }
 
