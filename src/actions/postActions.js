@@ -1,5 +1,5 @@
 import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST } from './types';
-
+import axios from 'axios';
 
 export const fetchPosts = () => dispatch => {
   const token = localStorage.getItem("jwtToken")
@@ -45,8 +45,8 @@ export const deletePost = (id) => dispatch => {
         "Authorization":"Bearer " + token
       }
   })
-  .then(response => response.json())
+  .then(response => console.log(response))
     .then(function(data) {
-      dispatch({type: DELETE_POST, payload: data})
-    }).catch(error => console.log("my error ", error))
+      dispatch({type: DELETE_POST, payload: id})
+    })
   }

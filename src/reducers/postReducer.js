@@ -27,18 +27,7 @@ export default function(state = initialState, action) {
       ]
     };
     case DELETE_POST:
-  // const posts = state.items.filter(post => post.id !== action.payload)
-  // debugger
-  // return {
-  //   items: [ state.items = posts ]
-  // }
-
-   return {items: state.items.filter(post => post.id !== action.payload)}
-    //   items: [
-    //     ...state,
-    //     items: posts
-    //   ]
-    // };
+    return {items: state.items.filter(post => post.id !== action.payload)}
 
     default:
     return state;

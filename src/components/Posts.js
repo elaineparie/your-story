@@ -71,7 +71,7 @@ class Posts extends React.Component {
 
     const mapDispatchToProps = dispatch => {
   return {
-    deletePost: (post) => dispatch(deletePost(post)),
+    deletePost: (id) => dispatch(deletePost(id)),
     fetchPosts: () => dispatch(fetchPosts())
   }
 }
