@@ -12,10 +12,8 @@ export const fetchUsers = () => dispatch => {
 
 
 export const createUser = (postData) => dispatch => {
-  debugger
   fetch('http://localhost:3001/api/v1/users', {
     method: 'POST',
-    // mode: 'no-cors',
     headers: {
       'content-type': 'application/json',
     },

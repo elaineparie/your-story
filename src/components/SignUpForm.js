@@ -24,7 +24,6 @@ class SignUpForm extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    // console.log(this.state);
 
     const user = {
       name: this.state.name,
@@ -33,7 +32,6 @@ class SignUpForm extends React.Component {
     }
     this.props.createUser(user)
     const signInParams = { email: this.state.email, password: this.state.password }
-    debugger
     signInUser(signInParams)
     .then((user) => {
 

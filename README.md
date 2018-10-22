@@ -1,3 +1,13 @@
+
+# Your-Story !
+
+Your-Story is a blog site intended for daily journaling, much like an online diary.
+
+## The API
+The following link is the API that accompanies the project. Run the React and Rails app simultaneously.
+https://github.com/elaineparie/your-story-api
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
