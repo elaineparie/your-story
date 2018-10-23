@@ -30,11 +30,19 @@ class SignUpForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.createUser(user)
     const signInParams = { email: this.state.email, password: this.state.password }
-    signInUser(signInParams)
-    .then((user) => {
+    // debugger
+    this.props.createUser(user)
 
+    debugger
+
+
+
+    signInUser(signInParams)
+
+
+    .then((user) => {
+      debugger
       localStorage.setItem("jwtToken", user.jwt)
 
       this.setState({
@@ -46,11 +54,15 @@ class SignUpForm extends React.Component {
     })
 
 
-          this.setState({
-            isLoggedIn: true
-          })
+
+          // this.setState({
+          //   isLoggedIn: true
+          // })
           const body = JSON.stringify(signInParams)
   }
+
+
+
 
 
   render() {

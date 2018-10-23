@@ -37,6 +37,8 @@ class Posts extends React.Component {
 
   renderPosts() {
 
+    console.log(this.props)
+
     return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
 
