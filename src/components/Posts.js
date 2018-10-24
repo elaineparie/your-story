@@ -6,6 +6,7 @@ import Post from './Post.js'
 import { bindActionCreators } from 'redux';
 import { Redirect, BrowserRouter } from 'react-router-dom';
 import { logoutUser } from '../services/user'
+import PostLikeButton from './PostLikeButton'
 
 
 
@@ -33,6 +34,7 @@ class Posts extends React.Component {
       isLoggedIn: false
     })
   }
+
 
 
   renderPosts() {

@@ -35,9 +35,9 @@ class PostForm extends React.Component {
       body: this.state.body
 
     };
-
+    console.log('A')
     this.props.createPost(post);
-
+    console.log('B')
     this.setState({
       title: "",
       body: ""
