@@ -5,16 +5,7 @@ import PostForm from '../Postform';
 
 
 
+const PostPage = props => <div><PostForm /><Posts /></div>;
 
-class PostPage extends React.Component {
-
-  render() {
-    return (
-      <div>
-    <PostForm />
-    <Posts />
-  </div>);
-  }
-}
 
 export default PostPage

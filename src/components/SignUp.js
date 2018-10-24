@@ -2,20 +2,29 @@ import React from 'react';
 import SignUpForm from './SignUpForm.js'
 import SignInForm from './SignInForm.js'
 
-class SignUp extends React.Component {
-  render() {
-    return (
-      <div className="row">
-      <div className="signupform">
 
-        <SignUpForm />
-        <hr />
+const SignUp = props =>   
+<div className="row">
+<div className="signupform"><SignUpForm />
+  <hr />
+  <SignInForm />
+  </div>
+</div>
 
-        <SignInForm />
-        </div>
-      </div>);
-  }
-}
+// class SignUp extends React.Component {
+//   render() {
+//     return (
+//       <div className="row">
+//       <div className="signupform">
+//
+//         <SignUpForm />
+//         <hr />
+//
+//         <SignInForm />
+//         </div>
+//       </div>);
+//   }
+// }
 
 
 
