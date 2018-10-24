@@ -30,25 +30,22 @@ class SignUpForm extends React.Component {
         email: this.state.email,
         password: this.state.password
       }
+      const that = this
       const signInParams = { email: this.state.email, password: this.state.password }
       this.props.createUser(user)
 
+      // this.props.history.push("/posts")
 
-    setTimeout(function(){ signInUser(signInParams)
-      .then((user) => {
-        localStorage.setItem("jwtToken", user.jwt)
-        })
-    }, 500);
-
-      const that = this
-      setTimeout(function(){
-      that.setState({
+       setTimeout(function(){
+        that.setState({
         name: "",
         email: "",
         password: ""
       })
-    }, 1000)
+    }, 500)
+
   }
+
 
   render() {
     if (localStorage.getItem('jwtToken')) {

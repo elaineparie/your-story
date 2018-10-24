@@ -13,7 +13,8 @@ const Post = props =>
 <p>{props.body}</p>
 <div>
 <Button className="btn btn-outline-secondary" onClick={() => props.deletePost(props.text.id)}>delete</Button>
-<PostLikeButton />
+<PostLikeButton post={props} />
+{console.log(props)}
 </div>
 </div>
 

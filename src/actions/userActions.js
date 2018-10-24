@@ -22,7 +22,8 @@ export const createUser = (postData) => dispatch => {
 
 .then(function(response){
   return response.json()})
-.then(function(data) {
-  dispatch({type: NEW_USER, payload: data})
+.then(function(user) {
+  localStorage.setItem("jwtToken", user.jwt)
+  dispatch({type: NEW_USER, payload: user})
 }).catch(error => console.log("my error ", error));
 };

@@ -74,9 +74,9 @@ class App extends Component {
           <Navbar />
           <Route exact path="/home" component={Home} />
           <Route path="/posts" component={PostPage} />
-         <Route exact path="/about" render={About} />
-         <Route exact path="/signin" component={SignInForm} />
-         <Route exact path="/" component={SignUp} />
+          <Route exact path="/about" render={About} />
+          <Route exact path="/signin" component={SignInForm} />
+          <Route exact path="/" component={SignUp} />
 
          </React.Fragment>
        </Router>

@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST } from './types';
+import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST, ADD_LIKE } from './types';
 import axios from 'axios';
 
 export const fetchPosts = () => dispatch => {
@@ -50,3 +50,25 @@ export const deletePost = (id) => dispatch => {
       dispatch({type: DELETE_POST, payload: id})
     })
   }
+
+  export const addLike = (post, likes) => dispatch => {
+    const token = localStorage.getItem("jwtToken")
+    fetch('http://localhost:3001/likes', {
+      method: 'POST',
+      // mode: 'no-cors',
+      headers: {
+        'content-type': 'application/json',
+        "Authorization":"Bearer " + token
+      },
+      body: JSON.stringify({
+        post: post,
+        likes: likes
+      })
+
+    })
+  .then(response => response.json())
+  // .then(function(data) {
+  //   dispatch({type: ADD_LIKE, payload: data})
+  // })
+  .catch(error => console.log("my error ", error));
+  };
