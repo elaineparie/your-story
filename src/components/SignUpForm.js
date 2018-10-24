@@ -14,64 +14,50 @@ class SignUpForm extends React.Component {
       password: ''
     }
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-  onSubmit = (e) => {
-    e.preventDefault()
-
-    const user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password
+      this.onChange = this.onChange.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+      this.onClick = this.onClick.bind(this)
     }
-    const signInParams = { email: this.state.email, password: this.state.password }
-    // debugger
-    this.props.createUser(user)
 
-    debugger
+    onChange(e) {
+      this.setState({[e.target.name]: e.target.value})
+    }
+
+    onSubmit = (e) => {
+      e.preventDefault()
+
+      const user = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      }
+      const signInParams = { email: this.state.email, password: this.state.password }
+      this.props.createUser(user)
 
 
+    setTimeout(function(){ signInUser(signInParams)
+      .then((user) => {
+        localStorage.setItem("jwtToken", user.jwt)
+        })
+    }, 500);
 
-    signInUser(signInParams)
-
-
-    .then((user) => {
-      debugger
-      localStorage.setItem("jwtToken", user.jwt)
-
-      this.setState({
+      const that = this
+      setTimeout(function(){
+      that.setState({
         name: "",
         email: "",
         password: ""
       })
-
-    })
-
-
-
-          // this.setState({
-          //   isLoggedIn: true
-          // })
-          const body = JSON.stringify(signInParams)
+    }, 1000)
   }
-
-
-
-
 
   render() {
     if (localStorage.getItem('jwtToken')) {
       return <Redirect to="/posts"/>
     } else {
-    return (
-      <form onSubmit={this.onSubmit}>
-      <h1>Join our community</h1>
+        return (
+          <form onSubmit={this.onSubmit}>
+          <h1>Join our community</h1>
 
       <div className="form-group">
       <label className="control-label">Name</label>
@@ -107,19 +93,17 @@ class SignUpForm extends React.Component {
       </div>
 
       <div className="form-group">
-      <button className="btn btn-primary btn-lg">
+      <button
+      className="btn btn-primary btn-lg">
       Sign Up
       </button>
       </div>
       </form>
-    );
-  }
+      );
+    }
   }
 }
 
-// SignUpForm.propTypes = {
-//   createUser: PropTypes.func.isRequired
-// }
 
 
 export default connect(null, { createUser })(SignUpForm)

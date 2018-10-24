@@ -8,7 +8,7 @@ export const fetchUsers = () => dispatch => {
       type: FETCH_USERS,
       payload: users
     })).catch(error => console.log("my error ", error));
-}
+  }
 
 
 export const createUser = (postData) => dispatch => {

@@ -11,9 +11,9 @@ class SignInForm extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault()
 
-      const signInParams = { email: this.state.email, password: this.state.password }
-      signInUser(signInParams)
-      .then((user) => {
+    const signInParams = { email: this.state.email, password: this.state.password }
+    signInUser(signInParams)
+    .then((user) => {
 
         localStorage.setItem("jwtToken", user.jwt)
 
@@ -21,14 +21,9 @@ class SignInForm extends React.Component {
           email: "",
           password: ""
         })
-
-
-
       })
 
       const body = JSON.stringify(signInParams)
-
-
     }
 
     handleEmailChange = (event) =>{
@@ -43,13 +38,12 @@ class SignInForm extends React.Component {
       })
     }
 
-  render() {
-    if (localStorage.getItem('jwtToken')) {
-      return <Redirect to="/posts"/>
-    } else {
+    render() {
+      if (localStorage.getItem('jwtToken')) {
+        return <Redirect to="/posts"/>
+      } else {
 
-    return (
-
+      return (
       <form onSubmit={this.handleSubmit}>
       <h1>Login</h1>
 
