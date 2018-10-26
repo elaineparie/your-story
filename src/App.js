@@ -15,6 +15,7 @@ import PostPage from './components/presentational/PostPage'
 import About from './components/presentational/About'
 import SignUp from './components/SignUp'
 import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 // import store from './store';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
@@ -76,7 +77,7 @@ class App extends Component {
           <Route path="/posts" component={PostPage} />
           <Route exact path="/about" render={About} />
           <Route exact path="/signin" component={SignInForm} />
-          <Route exact path="/" component={SignUp} />
+          <Route exact path="/" render={(props) => <SignUpForm {...props}/> } /><SignInForm />
 
          </React.Fragment>
        </Router>

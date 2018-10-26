@@ -1,5 +1,5 @@
 import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST, ADD_LIKE } from './types';
-import axios from 'axios';
+
 
 export const fetchPosts = () => dispatch => {
   const token = localStorage.getItem("jwtToken")

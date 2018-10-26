@@ -1,6 +1,5 @@
-import { Redirect, BrowserRouter } from 'react-router-dom';
-import React from 'react';
-export function signInUser(signInParams) {
+
+export const signInUser = async (signInParams) => {
   const body = JSON.stringify(signInParams)
 
   return fetch('http://localhost:3001/signin', {

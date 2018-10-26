@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import { signInUser } from '../services/user'
 import { Redirect } from 'react-router-dom'
 

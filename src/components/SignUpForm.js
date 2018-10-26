@@ -22,7 +22,7 @@ class SignUpForm extends React.Component {
       this.setState({[e.target.name]: e.target.value})
     }
 
-    onSubmit = (e) => {
+    onSubmit (e) {
       e.preventDefault()
 
       const user = {
@@ -31,18 +31,8 @@ class SignUpForm extends React.Component {
         password: this.state.password
       }
       const that = this
-      const signInParams = { email: this.state.email, password: this.state.password }
       this.props.createUser(user)
-
-      // this.props.history.push("/posts")
-
-       setTimeout(function(){
-        that.setState({
-        name: "",
-        email: "",
-        password: ""
-      })
-    }, 500)
+      this.props.history.push("/posts");
 
   }
 
