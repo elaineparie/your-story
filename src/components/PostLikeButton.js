@@ -15,7 +15,6 @@ class PostLikeButton extends React.Component {
     }
 
     onClick = (e) => {
-      console.log(this.props.post.text.likes)
     this.setState({
       counter: this.state.counter + 1
     })
@@ -27,7 +26,8 @@ class PostLikeButton extends React.Component {
   render() {
     return (<div>
       <Button className="btn btn-outline-secondary" onClick={this.onClick}>Like</Button>
-      <span>{this.state.counter}</span>
+      {console.log(this)}
+      <span>{this.props.post.text.likes}</span>
       </div>);
   }
 }

@@ -67,5 +67,8 @@ export const deletePost = (id) => dispatch => {
 
     })
   .then(response => response.json())
+  .then(function(data) {
+    dispatch({type: ADD_LIKE, payload: likes, payload: post})
+  })
   .catch(error => console.log("my error ", error));
   };

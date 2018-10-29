@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST } from '../actions/types';
+import { FETCH_POSTS, NEW_POST, USER_POSTS, DELETE_POST, ADD_LIKE } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -28,6 +28,15 @@ export default function(state = initialState, action) {
     };
     case DELETE_POST:
     return {items: state.items.filter(post => post.id !== action.payload)}
+
+    case ADD_LIKE:
+    const post = state.items.filter(post => post.id == action.payload.id)
+    post[0].likes = post[0].likes + 1
+    return {
+      items: [
+        ...state.items
+      ]
+    };
 
     default:
     return state;
