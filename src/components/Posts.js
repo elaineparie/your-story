@@ -51,15 +51,14 @@ class Posts extends React.Component {
 
   renderPosts() {
     if (this.state.sortedPosts.length !== 0){
-      debugger
       console.log(this)
-    return this.state.sortedPosts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)
+      return this.state.sortedPosts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)
     }else
-    {return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)}
+      {return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)}
   }
 
   sortPosts = () => {
-    const posts = Object.assign([], this.props.posts)
+    const posts = [...this.props.posts]
     debugger
      const sortedPosts = posts.sort(function(a, b) {
        if (a.likes < b.likes) {
