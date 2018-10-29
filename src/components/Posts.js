@@ -16,7 +16,7 @@ import { addLike } from '../actions/postActions'
 class Posts extends React.Component {
 
   state = {
-    posts: []
+    sortedPosts: []
   }
 
   handleOnClick = (id) => {
@@ -50,12 +50,17 @@ class Posts extends React.Component {
 
 
   renderPosts() {
-
-    return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)
+    if (this.state.sortedPosts.length !== 0){
+      debugger
+      console.log(this)
+    return this.state.sortedPosts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)
+    }else
+    {return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)}
   }
 
   sortPosts = () => {
-    const posts = this.props.posts
+    const posts = Object.assign([], this.props.posts)
+    debugger
      const sortedPosts = posts.sort(function(a, b) {
        if (a.likes < b.likes) {
          return 1;
@@ -67,10 +72,8 @@ class Posts extends React.Component {
      });
 
      this.setState({
-       posts: sortedPosts
+       sortedPosts: sortedPosts
      })
-     // , () => { return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)})
-     // return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
 
 
@@ -81,7 +84,6 @@ class Posts extends React.Component {
           <div>
           <button onClick={this.sortPosts}>Sort Posts</button>
         {this.renderPosts()}
-
         <hr />
         <button onClick={this.handleLogout}>Log out</button>
         <br />
