@@ -58,9 +58,10 @@ class Posts extends React.Component {
   }
 
   sortPosts = () => {
-    this.setState({
-      posts: this.props.posts
-    })
+    // this.setState({
+    //   posts: this.props.posts
+    // })
+    const posts = this.props.posts
      this.state.posts.sort(function(a, b) {
        if (a.likes < b.likes) {
          return 1;
@@ -70,7 +71,11 @@ class Posts extends React.Component {
        }
        return 0;
      });
-     return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
+
+     this.setState({
+       posts: posts
+     }, () => { return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)})
+     // return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
 
 
