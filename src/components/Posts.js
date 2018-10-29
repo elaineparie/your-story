@@ -74,7 +74,8 @@ class Posts extends React.Component {
 
      this.setState({
        posts: posts
-     }, () => { return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)})
+     })
+     // , () => { return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)})
      // return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
 
