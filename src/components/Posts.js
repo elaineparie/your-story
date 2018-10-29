@@ -70,11 +70,9 @@ class Posts extends React.Component {
        }
        return 0;
      });
-     this.setState({
-       sortedPosts: this.props.posts
-     })
-     return this.state.sortedPosts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
+     return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
   }
+
 
 
     render() {
