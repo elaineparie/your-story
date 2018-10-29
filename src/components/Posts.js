@@ -16,8 +16,7 @@ import { addLike } from '../actions/postActions'
 class Posts extends React.Component {
 
   state = {
-    posts: [],
-    sortedPosts: []
+    posts: []
   }
 
   handleOnClick = (id) => {
@@ -52,17 +51,12 @@ class Posts extends React.Component {
 
   renderPosts() {
 
-    console.log(this.props)
-
     return this.props.posts.map((post, id) => <Post deletePost={this.handleOnClick} postLikeButton={this.addLike} key={id} title={post.title} text={post} body={post.body} />)
   }
 
   sortPosts = () => {
-    // this.setState({
-    //   posts: this.props.posts
-    // })
     const posts = this.props.posts
-     this.state.posts.sort(function(a, b) {
+     const sortedPosts = posts.sort(function(a, b) {
        if (a.likes < b.likes) {
          return 1;
        }
@@ -73,7 +67,7 @@ class Posts extends React.Component {
      });
 
      this.setState({
-       posts: posts
+       posts: sortedPosts
      })
      // , () => { return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)})
      // return this.state.posts.map((post, id) => <Post deletePost={this.handleOnClick} key={id} title={post.title} text={post} body={post.body} />)
@@ -82,7 +76,6 @@ class Posts extends React.Component {
 
 
     render() {
-      console.log(this.props)
       if (localStorage.getItem("jwtToken")){
         return (
           <div>
